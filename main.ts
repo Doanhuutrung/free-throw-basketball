@@ -1,3 +1,14 @@
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . 5 5 5 . . 
+        . 1 5 5 5 1 . 
+        5 5 1 5 1 5 5 
+        1 1 1 1 1 1 1 
+        5 5 1 5 1 5 5 
+        . 1 5 5 5 1 . 
+        . . 5 5 5 . . 
+        `, athlete, 0, -100)
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(throw_imgs.ball, athlete, 0, -100)
 })
@@ -129,10 +140,33 @@ scene.setBackgroundImage(img`
     dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
     dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
     `)
-athlete = sprites.create(throw_imgs.dunk, SpriteKind.Player)
-athlete.setPosition(80, 90)
-athlete.setVelocity(50, 0)
+athlete = sprites.create(img`
+    . . f f f f . . . . . . 
+    . 6 6 6 6 6 6 . . . . . 
+    . f f a a a a . . . . . 
+    . f f a f a f . . . . . 
+    . f a a a a a . . . . . 
+    . . a a a a a . . . . . 
+    . . . a a a . . . . . . 
+    . a a 1 a a 1 a 4 4 4 a 
+    a a a 1 6 6 1 4 f 4 f 4 
+    a a a a 6 6 6 a a f 4 4 
+    a a a a a 6 a a a 4 f 4 
+    . a a a a a a 6 4 4 4 . 
+    . 6 6 6 a a 6 6 . . . . 
+    . 1 1 1 1 1 1 . . . . . 
+    . 6 6 6 8 6 6 . . . . . 
+    . 6 6 6 8 6 6 . . . . . 
+    . 6 6 6 8 6 6 . . . . . 
+    . a a . . a a . . . . . 
+    . a a . . a a . . . . . 
+    . a a . . a a . . . . . 
+    . 6 1 . . 6 1 . . . . . 
+    . 1 1 1 . 1 1 1 . . . . 
+    `, SpriteKind.Player)
+athlete.setPosition(77, 101)
 athlete.setBounceOnWall(true)
 let hoop = sprites.create(throw_imgs.hoop, SpriteKind.Goal)
 hoop.setPosition(80, 35)
-info.startCountdown(30)
+info.startCountdown(10)
+game.setGameOverEffect(true, effects.bubbles)

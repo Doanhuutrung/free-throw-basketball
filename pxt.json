@@ -3,7 +3,8 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "throw_imgs": "github:kiki-lee/throw_imgs"
+        "throw_imgs": "github:kiki-lee/throw_imgs",
+        "multiplayer": "*"
     },
     "files": [
         "main.blocks",
