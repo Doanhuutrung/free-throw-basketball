@@ -1,3 +1,6 @@
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    athlete.setPosition(80, 77)
+})
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(img`
         . . 5 5 5 . . 
@@ -12,9 +15,18 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(throw_imgs.ball, athlete, 0, -100)
 })
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    athlete.setPosition(52, 87)
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    athlete.setPosition(112, 81)
+})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Goal, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(sprite)
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    athlete.setPosition(80, 118)
 })
 let projectile: Sprite = null
 let athlete: Sprite = null
@@ -164,7 +176,7 @@ athlete = sprites.create(img`
     . 6 1 . . 6 1 . . . . . 
     . 1 1 1 . 1 1 1 . . . . 
     `, SpriteKind.Player)
-athlete.setPosition(77, 101)
+athlete.setPosition(80, 118)
 athlete.setBounceOnWall(true)
 let hoop = sprites.create(throw_imgs.hoop, SpriteKind.Goal)
 hoop.setPosition(80, 35)
